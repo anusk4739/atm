@@ -36,12 +36,13 @@ if (pinAnswer.pin === myPin) {
       },
     ]);
 
-    if (amountAns.amount > myBalance) {
-        console.log(`Sorry! you do not have enough amount`);
-    }else (myBalance -= amountAns.amount)
-        // tempelate literal
+    if (myBalance >= amountAns.amount) {
+        console.log(myBalance -= amountAns.amount)
         console.log(`your remaining balance is: ${myBalance}`);
-
+    } else {
+        console.log(`Sorry! you do not have enough amount`);
+        // tempelate literal
+    }
   } else if (operationAns.operation === "check balance") {
     console.log("your balance is: " + myBalance);
     // new operator
@@ -55,11 +56,13 @@ if (pinAnswer.pin === myPin) {
         }
     ]);
     
-    if (optionAns.option > myBalance) {
-        console.log(`Sorry! you do not have enough amount`);
-    }else (myBalance -= optionAns.option)
-        // tempelate literal
+    if (myBalance >= optionAns.option) {
+        console.log(myBalance -= optionAns.option)
         console.log(`your remaining balance is: ${myBalance}`);
+    } else {
+        console.log(`Sorry! you do not have enough amount`);
+        // tempelate literal
+    }
 
 
 

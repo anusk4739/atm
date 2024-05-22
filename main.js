@@ -1,10 +1,11 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
 let myBalance = 50000;
 let myPin = 1234;
 let pinAnswer = await inquirer.prompt([
     {
         name: "pin",
-        message: "Enter your pin",
+        message: "Enter your 4-digit pin",
         type: "number",
     },
 ]);
@@ -27,13 +28,14 @@ if (pinAnswer.pin === myPin) {
                 type: "number",
             },
         ]);
-        if (amountAns.amount > myBalance) {
-            console.log(`Sorry! you do not have enough amount`);
+        if (myBalance >= amountAns.amount) {
+            console.log(myBalance -= amountAns.amount);
+            console.log(`your remaining balance is: ${myBalance}`);
         }
-        else
-            (myBalance -= amountAns.amount);
-        // tempelate literal
-        console.log(`your remaining balance is: ${myBalance}`);
+        else {
+            console.log(`Sorry! you do not have enough amount`);
+            // tempelate literal
+        }
     }
     else if (operationAns.operation === "check balance") {
         console.log("your balance is: " + myBalance);
@@ -48,13 +50,14 @@ if (pinAnswer.pin === myPin) {
                 choices: ["5000", "10000", "20000", "50000", "100000"]
             }
         ]);
-        if (optionAns.option > myBalance) {
-            console.log(`Sorry! you do not have enough amount`);
+        if (myBalance >= optionAns.option) {
+            console.log(myBalance -= optionAns.option);
+            console.log(`your remaining balance is: ${myBalance}`);
         }
-        else
-            (myBalance -= optionAns.option);
-        // tempelate literal
-        console.log(`your remaining balance is: ${myBalance}`);
+        else {
+            console.log(`Sorry! you do not have enough amount`);
+            // tempelate literal
+        }
     }
 }
 else {
